@@ -6,6 +6,7 @@ while True:
     print("Escoja dibujo.")
     print("A)Flor")
     print("B)Hexagono")
+    print("C)Cuadrado")
     op=input("Introduzca su opción: ")
 
     if op==("A"):
@@ -16,7 +17,7 @@ while True:
             t.circle(x)#"x" va tomando los valores del rango, por lo que el circulo se irá incrementando
             t.color(colors[x%3])
             t.left(60)
-    else:
+    elif op==("B"):
         colors=["red","purple","blue","green","orange"]
         t.screen.bgcolor("white")
         for x in range(150):
@@ -24,12 +25,16 @@ while True:
             t.pensize(x/10+1)
             t.fd(x)
             t.left(59)
+    elif op==("C"):
+        t.screen.bgcolor("black")
+        colors=["blue","purple","red","yellow"]
+        for x in range(300):
+            t.color(colors[x%4])
+            t.fd(x)
+            t.left(90)
+    t.hideturtle()
     conti=ns(input("¿Continuar?: "))
     if conti==("s"):
-        t.clear()
-        t.hideturtle()
+        t.reset()
     else:
         break
-#t.screen.exitonclick()
-#t.screen.mainloop()
-    
