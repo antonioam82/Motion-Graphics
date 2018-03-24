@@ -1,5 +1,6 @@
 from turtle import Turtle
 from VALID import OKI, ns
+import subprocess
 
 while True:
     t=Turtle()
@@ -36,5 +37,8 @@ while True:
     conti=ns(input("¿Continuar?: "))
     if conti==("s"):
         t.reset()
+        t.hideturtle()
+       subprocess.call(["cmd.exe","/C","cls"])
+        
     else:
         break
