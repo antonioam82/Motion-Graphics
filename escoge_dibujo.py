@@ -35,7 +35,7 @@ while True:
         t.color(colors[x%(len(colors))])
         if op==("B"):
                 t.pensize(x/10+1)
-        if op!=("A") or op==("E"):
+        if op!=("A"):
                 t.fd(x)
         t.left(atrib[1])
 
