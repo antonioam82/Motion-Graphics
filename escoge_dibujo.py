@@ -2,6 +2,19 @@ from turtle import Turtle
 from VALID import OKI, ns, opt
 import subprocess
 
+def ver(lii):
+    try:
+        lii[0]==int(lii[0])
+        lii[1]==int(lii[1])
+        lii[2]==str(lii[0])
+        return lii
+    except:
+        return False
+
+#def col(lista):
+    
+        
+
 def datt(li):
     li=li.split(",")
     lista=[]
@@ -48,8 +61,10 @@ while True:
         atrib=[200,90,"black"]
         colors=["red","green","pink","blue","orange","yellow"]
     elif op==("G"):
-        atrib=datt(input("Introduce atributos separados por coma: "))
-        colors=datt(input("Introduce colores separadoss por coma: "))
+        atrib=ver(datt(input("Introduce nºciclos, long lineas y color de fondo, separados por coma: ")))
+        while atrib==False:
+            atrib=ver(datt(input("Orden incorrecto: ")))
+        colors=datt(input("Introduce colores separados por coma: "))
         
             
     t.screen.bgcolor(atrib[2])
