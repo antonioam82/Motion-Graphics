@@ -61,12 +61,12 @@ while True:
         atrib=[200,90,"black"]
         colors=["red","green","pink","blue","orange","yellow"]
     elif op==("G"):
-        atrib=ver(datt(input("Introduce nºciclos, gragos giro y color de fondo, separados por coma: ")))
+        atrib=ver(datt(input("Introduce nºciclos, long lineas y color de fondo, separados por coma: ")))
         while atrib==False:
             atrib=ver(datt(input("Orden incorrecto: ")))
         colors=datt(input("Introduce colores separados por coma: "))
-        
-            
+
+    
     t.screen.bgcolor(atrib[2])
     for x in range(atrib[0]):
         if op==("A"):
@@ -90,6 +90,12 @@ while True:
                 t.fd(tam)
             elif sent==("DW"):
                 t.fd(tam)
+    guard=ns(input("¿Desea guardar el dibujo creado?: "))
+    if guard==("s"):
+        dibujo=
+        nom=input("¿Que nombre desea dar  al dibujo?: ")
+        pickle.dump(open,
+        
 
     t.hideturtle()
     conti=ns(input("¿Continuar?: "))
@@ -102,3 +108,4 @@ while True:
 #t.screen.exitonclick()
 #t.screen.mainloop()
     
+
