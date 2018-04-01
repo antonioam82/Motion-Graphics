@@ -1,5 +1,6 @@
 from turtle import Turtle
 from VALID import OKI, ns, opt
+import pickle
 import subprocess
 
 def ver(lii):
