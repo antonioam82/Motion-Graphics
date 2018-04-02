@@ -6,7 +6,7 @@ def ver(lii):
     try:
         lii[0]==int(lii[0])
         lii[1]==int(lii[1])
-        lii[2]==str(lii[0])
+        lii[2]==str(lii[0])#verificar color
         return lii
     except:
         return False
