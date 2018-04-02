@@ -1,6 +1,5 @@
 from turtle import Turtle
 from VALID import OKI, ns, opt
-import pickle
 import subprocess
 
 def ver(lii):
@@ -12,7 +11,15 @@ def ver(lii):
     except:
         return False
 
-#def col(lista):
+def col(lista):
+    n=1
+    res=[]
+    for i in lista:
+        if n>=4:
+            res.append(i)
+        n+=1
+    return res
+            
     
         
 
@@ -38,8 +45,8 @@ while True:
     print("C)Cuadrado")
     print("D)Hexagono simp")
     print("E)Cuadrado spiral")
-    print("F)Raizes")
-    print("G)Crear fig personalizada")
+    print("F)Crear fig personalizada")
+    print("G)Cargar figura guardada")
     op=opt(input("Introduzca su opción: "),["A","B","C","D","E","F","G"])
     
     if op==("A"):
@@ -58,14 +65,15 @@ while True:
         atrib=[200,91,"white"]
         colors=["red","green","blue","orange"]
     elif op==("F"):
-        import random
-        atrib=[200,90,"black"]
-        colors=["red","green","pink","blue","orange","yellow"]
-    elif op==("G"):
         atrib=ver(datt(input("Introduce nºciclos, long lineas y color de fondo, separados por coma: ")))
         while atrib==False:
             atrib=ver(datt(input("Orden incorrecto: ")))
         colors=datt(input("Introduce colores separados por coma: "))
+    elif op==("G"):
+        import pickle
+        fig=input("Introduzca el nombre de la figura guardada que desea ver: ")
+        atrib=pickle.load(open(fig,"rb"))
+        colors=col(atrib)
 
     
     t.screen.bgcolor(atrib[2])
@@ -75,30 +83,21 @@ while True:
         t.color(colors[x%(len(colors))])
         if op==("B"):
                 t.pensize(x/10+1)
-        if op!=("A") and op!=("F"):
+        if op!=("A"):
                 t.fd(x)
         t.left(atrib[1])
-        if op==("F"):
-            sent=random.choice(["D","L","U","DW"])
-            tam=random.randint(20,40)
-            if sent==("D"):
-                t.fd(tam)
-                t.right(atrib[1])
-            elif sent==("L"):
-                t.fd(tam)
-                t.left(atrib[1])
-            elif sent==("U"):
-                t.fd(tam)
-            elif sent==("DW"):
-                t.fd(tam)
-    guard=ns(input("¿Desea guardar el dibujo creado?: "))
-    if guard==("s"):
-        dibujo=
-        nom=input("¿Que nombre desea dar  al dibujo?: ")
-        pickle.dump(open,
+    t.hideturtle()
+
+    if op==("F"):
+        guard=ns(input("¿Desea guardar el dibujo creado?: "))
+        if guard==("s"):
+            import pickle
+            dibujo=atrib+colors
+            nom=input("¿Que nombre desea dar  al dibujo?: ")
+            pickle.dump(dibujo,open(nom,"wb"))
         
 
-    t.hideturtle()
+    
     conti=ns(input("¿Continuar?: "))
     if conti==("s"):
         t.reset()
@@ -108,5 +107,4 @@ while True:
         break
 #t.screen.exitonclick()
 #t.screen.mainloop()
-    
 
