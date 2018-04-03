@@ -6,7 +6,7 @@ def ver(lii):
     try:
         lii[0]==int(lii[0])
         lii[1]==int(lii[1])
-        lii[2]==str(lii[0])
+        lii[2]==str(lii[2])
         return lii
     except:
         return False
@@ -20,6 +20,7 @@ def col(lista):
         n+=1
     return res
             
+    
 def datt(li):
     li=li.split(",")
     lista=[]
@@ -62,7 +63,7 @@ while True:
         atrib=[200,91,"white"]
         colors=["red","green","blue","orange"]
     elif op==("F"):
-        atrib=ver(datt(input("Introduce nºciclos, grados giro y color de fondo, separados por coma: ")))
+        atrib=ver(datt(input("Introduce nºciclos, grados de giro y color de fondo, separados por coma: ")))
         while atrib==False:
             atrib=ver(datt(input("Orden incorrecto: ")))
         colors=datt(input("Introduce colores separados por coma: "))
@@ -89,18 +90,17 @@ while True:
                 t.fd(x)
             t.left(atrib[1])
         t.hideturtle()
-    except:
-        print("El archivo",fig,"no es apto para ser ejecutado en este programa")
-
-    if op==("F"):
-        guard=ns(input("¿Desea guardar el dibujo creado?: "))
-        if guard==("s"):
-            import pickle
-            dibujo=atrib+colors
-            nom=input("¿Que nombre desea dar  al dibujo?: ")
-            pickle.dump(dibujo,open(nom,"wb"))
         
-
+        if op==("F"):
+            guard=ns(input("¿Desea guardar el dibujo creado?: "))
+            if guard==("s"):
+                import pickle
+                dibujo=atrib+colors
+                nom=input("¿Que nombre desea dar  al dibujo?: ")
+                pickle.dump(dibujo,open(nom,"wb"))
+    except:
+        print("El archivo solicitado o los datos introducidos no son aptos para su ejecución en este programa.")#intentar "fig"
+        
     
     conti=ns(input("¿Continuar?: "))
     if conti==("s"):
@@ -111,4 +111,3 @@ while True:
         break
 #t.screen.exitonclick()
 #t.screen.mainloop()
-    
