@@ -20,9 +20,6 @@ def col(lista):
         n+=1
     return res
             
-    
-        
-
 def datt(li):
     li=li.split(",")
     lista=[]
