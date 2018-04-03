@@ -6,7 +6,7 @@ def ver(lii):
     try:
         lii[0]==int(lii[0])
         lii[1]==int(lii[1])
-        lii[2]==str(lii[0])#verificar color
+        lii[2]==str(lii[0])
         return lii
     except:
         return False
@@ -39,12 +39,12 @@ def datt(li):
 
 while True:
     t=Turtle()
-    print("Escoja dibujo.")
-    print("A)Flor")
-    print("B)Hexagono com")
-    print("C)Cuadrado")
-    print("D)Hexagono simp")
-    print("E)Cuadrado spiral")
+    print("Escoja opción.")
+    print("A)Demo1 (Flor)")
+    print("B)Demo2 (Hexagono com)")
+    print("C)Demo3 (Cuadrado)")
+    print("D)Demo4 (Hexagono simp)")
+    print("E)Demo5 (Cuadrado spiral)")
     print("F)Crear fig personalizada")
     print("G)Cargar figura guardada")
     op=opt(input("Introduzca su opción: "),["A","B","C","D","E","F","G"])
@@ -65,28 +65,35 @@ while True:
         atrib=[200,91,"white"]
         colors=["red","green","blue","orange"]
     elif op==("F"):
-        atrib=ver(datt(input("Introduce nºciclos, grados y color de fondo, separados por coma: ")))
+        atrib=ver(datt(input("Introduce nºciclos, long lineas y color de fondo, separados por coma: ")))
         while atrib==False:
             atrib=ver(datt(input("Orden incorrecto: ")))
         colors=datt(input("Introduce colores separados por coma: "))
     elif op==("G"):
         import pickle
         fig=input("Introduzca el nombre de la figura guardada que desea ver: ")
-        atrib=pickle.load(open(fig,"rb"))
-        colors=col(atrib)
+        while True:
+            try:
+                atrib=pickle.load(open(fig,"rb"))
+                colors=col(atrib)
+                break
+            except:
+                fig=input("El archivo solicitado no se encontró o no es apto para este programa: ")
 
-    
-    t.screen.bgcolor(atrib[2])
-    for x in range(atrib[0]):
-        if op==("A"):
-            t.circle(x)
-        t.color(colors[x%(len(colors))])
-        if op==("B"):
+    try:
+        t.screen.bgcolor(atrib[2])
+        for x in range(atrib[0]):
+            if op==("A"):
+                t.circle(x)
+            t.color(colors[x%(len(colors))])
+            if op==("B"):
                 t.pensize(x/10+1)
-        if op!=("A"):
+            if op!=("A"):
                 t.fd(x)
-        t.left(atrib[1])
-    t.hideturtle()
+            t.left(atrib[1])
+        t.hideturtle()
+    except:
+        print("El archivo",fig,"no es apto para ser ejecutado en este programa")
 
     if op==("F"):
         guard=ns(input("¿Desea guardar el dibujo creado?: "))
@@ -107,4 +114,4 @@ while True:
         break
 #t.screen.exitonclick()
 #t.screen.mainloop()
-
+    
