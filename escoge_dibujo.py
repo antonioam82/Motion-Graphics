@@ -62,7 +62,7 @@ while True:
         atrib=[200,91,"white"]
         colors=["red","green","blue","orange"]
     elif op==("F"):
-        atrib=ver(datt(input("Introduce nºciclos, long lineas y color de fondo, separados por coma: ")))
+        atrib=ver(datt(input("Introduce nºciclos, grados giro y color de fondo, separados por coma: ")))
         while atrib==False:
             atrib=ver(datt(input("Orden incorrecto: ")))
         colors=datt(input("Introduce colores separados por coma: "))
