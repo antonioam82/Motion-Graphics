@@ -6,7 +6,7 @@ def ver(lii):
     try:
         lii[0]==int(lii[0])
         lii[1]==int(lii[1])
-        lii[2]==str(lii[2])
+        t.color(lii[2])
         return lii
     except:
         return False
@@ -44,7 +44,7 @@ while True:
     print("D)Demo4 (Hexagono simp)")
     print("E)Demo5 (Cuadrado spiral)")
     print("F)Crear fig personalizada")
-    print("G)Cargar figura guardada")
+    print("G)Reproducir figura guardada")
     op=opt(input("Introduzca su opción: "),["A","B","C","D","E","F","G"])
     
     if op==("A"):
@@ -65,7 +65,7 @@ while True:
     elif op==("F"):
         atrib=ver(datt(input("Introduce nºciclos, grados de giro y color de fondo, separados por coma: ")))
         while atrib==False:
-            atrib=ver(datt(input("Orden incorrecto: ")))
+            atrib=ver(datt(input("Datos incorrectos: ")))
         colors=datt(input("Introduce colores separados por coma: "))
     elif op==("G"):
         import pickle
@@ -111,3 +111,5 @@ while True:
         break
 #t.screen.exitonclick()
 #t.screen.mainloop()
+    
+
