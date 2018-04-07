@@ -38,13 +38,13 @@ def datt(li):
 while True:
     t=Turtle()
     print("Escoja opción.")
-    print("A)Demo1 (Flor)")
-    print("B)Demo2 (Hexagono com)")
-    print("C)Demo3 (Cuadrado)")
-    print("D)Demo4 (Hexagono simp)")
-    print("E)Demo5 (Cuadrado spiral)")
-    print("F)Crear fig personalizada")
-    print("G)Reproducir figura guardada")
+    print("A)Dibujo1")
+    print("B)Dibujo2")
+    print("C)Dibujo3")
+    print("D)Dibujo4")
+    print("E)Dibujo5")
+    print("F)Crear dibujo personalizado")
+    print("G)Reproducir dibujo guardado")
     op=opt(input("Introduzca su opción: "),["A","B","C","D","E","F","G"])
     
     if op==("A"):
