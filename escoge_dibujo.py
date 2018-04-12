@@ -15,7 +15,7 @@ def col(lista):
     n=1
     res=[]
     for i in lista:
-        if n>=4:
+        if n>=3:
             res.append(i)
         n+=1
     return res
