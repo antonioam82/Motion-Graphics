@@ -12,7 +12,7 @@ def ver(lii):
         return False
 
 def col(lista):
-    n=1
+    n=0
     res=[]
     for i in lista:
         if n>=3:
@@ -111,5 +111,3 @@ while True:
         break
 #t.screen.exitonclick()
 #t.screen.mainloop()
-    
-
