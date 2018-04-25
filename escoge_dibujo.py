@@ -1,5 +1,6 @@
 from turtle import Turtle
 from VALID import OKI, ns, opt
+import random
 import subprocess
 
 def ver(lii):
@@ -50,6 +51,7 @@ while True:
     if op==("A"):
         atrib=[100,60,"black"]
         colors=["red","yellow","purple"]
+        
     elif op==("B"):
         atrib=[150,59,"white"]
         colors=["red","purple","blue","green","orange"]
@@ -79,6 +81,8 @@ while True:
                 fig=input("El archivo solicitado no se encontró o no es apto para este programa: ")
 
     try:
+        if op!=("G") and op!=("F"):
+            random.shuffle(colors)
         t.screen.bgcolor(atrib[2])
         for x in range(atrib[0]):
             if op==("A"):
@@ -91,6 +95,7 @@ while True:
             t.left(atrib[1])
         t.hideturtle()
         
+        
         if op==("F"):
             guard=ns(input("¿Desea guardar el dibujo creado?: "))
             if guard==("s"):
@@ -100,6 +105,7 @@ while True:
                 pickle.dump(dibujo,open(nom,"wb"))
     except:
         print("El archivo solicitado o los datos introducidos no son aptos para su ejecución en este programa.")#intentar "fig"
+    print("¡HECHO!",chr(7))
         
     
     conti=ns(input("¿Continuar?: "))
